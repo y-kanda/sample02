@@ -1,0 +1,579 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "poppins", sans-serif;
+    font-size: 16px;
+    color: #2b2b2b;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+section {
+    text-align: center;
+}
+
+h1,h2,h3,p {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #2b2b2b;
+    text-decoration: none;
+}
+
+.header {
+    position: relative;
+    width: 100%;    
+    height: 620px;
+    background-image: url(img/top.png);
+    background-size: cover;
+    font-family: myriad-pro, sans-serif; //表示されないフォントもあるから多くのフォントを記載する//
+    text-align: center;
+    color: #fff;
+}
+
+.header-nav {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 64px;
+}
+// ヘッダースクロール固定
+.header-position {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+// ヘッダー色付け
+.color-change {
+    color: #2b2b2b;
+    background: #fff;
+    border-bottom: 1px solid #a0a0a0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-nav-logo {
+    font-size: 36px;
+}
+
+.header-menu {
+    position: relative;
+    width: 32px;
+    height: 64px;
+    cursor: pointer;
+}
+//ハンバーガーメニューのアイコン
+.header-menu__line,
+.header-menu__line::before,
+.header-menu__line::after,
+.header-menu__line-dummy {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: #fff;
+}
+// ハンバーガーメニュー色付け
+.color-change span,
+.color-change span::before,
+.color-change span::after {
+    background: #2b2b2b;
+}
+
+.header-menu__line::before,
+.header-menu__line::after {
+    content: "";
+}
+
+.header-menu__line,
+.header-menu__line-dummy {
+    top: 50%;
+    transition: all 0.3s;
+}
+
+.active .header-menu__line {
+    transform: rotate(-45deg);
+}
+
+.active .header-menu__line-dummy {
+    transform: rotate(45deg);
+}
+
+.header-menu__line::before {
+    top: calc(50% - 9px);
+    transition: all 0.3s;
+}
+
+.active .header-menu__line::before {
+    top: 50%;
+    opacity: 0;
+}
+
+.header-menu__line::after {
+    top: calc(50% + 8px);
+    transition: all 0.3s;
+}
+
+.active .header-menu__line::after {
+    top: 50%;
+    opacity: 0;
+}
+//ここまで//
+// ハンバーガーメニュー内容
+.menu-ul {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s;
+}
+
+.menu-li {
+    padding: 0;
+    line-height: 11vh;
+    text-align: center;
+    font-size: 18px;
+    border-top: 1px solid #ccc;
+}
+// 擬似クラス
+.menu-li:last-of-type {
+    border-bottom: 1px solid #ccc;
+}
+
+.height-change {
+    height: calc(100vh - 64px);
+}
+
+.header-title {
+    padding-top: 240px;
+    font-size: 120px;
+    font-weight: normal;
+}
+
+.header-title-sub {
+    word-spacing: 4px;
+}
+
+.header-title-sub::before,
+.header-title-sub::after {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 2px;
+    margin: 0 8px;
+    background: #fff;
+    vertical-align: middle;
+}
+// concept heading高さ足りてなさそう
+.u-heading {
+position: relative;
+margin-bottom: 32px;
+padding-bottom: 24px;
+font-size: 36px;
+letter-spacing: 2px;
+}
+
+.u-heading::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 50%;
+width: 40px;
+height: 1px;
+background: #2b2b2b;
+transform: translateX(-50%);
+}
+
+.u-text {
+padding-bottom: 40px;
+line-height: 1.8;
+letter-spacing: 1.4px;
+}
+
+.concept {
+    width: 100%;
+    padding: 80px 0;
+    background: linear-gradient(#fff 70%, #ededed 30%);
+}
+
+.concept-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+// work
+.work {
+    width: 100%;
+    padding-top: 80px;
+}
+
+.work-contents {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-between;
+    height: 1680px;
+}
+
+.work-content {
+    width: 420px;
+    padding-bottom: 80px;
+    text-align: left;
+    line-height: 1.8;
+}
+// 擬似クラス付与
+.work-content:nth-of-type(3) {
+    margin-top: 120px;
+}
+
+.work-img {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.work-content-heading {
+    font-size: 24px;
+}
+
+.work-content-text {
+    letter-spacing: 1.5px;
+}
+// florist   gradientで途中まで背景色をつける
+.florist{
+    width: 100%;
+    padding-top: 80px;
+    background: linear-gradient(#ededed 60%, #fff  40%);
+}
+
+.florist-persons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.florist-person {
+    width: 300px;
+    padding-bottom: 40px;
+    text-align: left;
+    line-height: 1.8;
+}
+
+.person-image {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.person-name {
+    font-size: 24px;
+}
+
+.person-text {
+    font-size: 16px;
+    letter-spacing: 1.5px;
+}
+// information
+.information {
+    width: 100%;
+    padding: 80px 0 120px;
+}
+
+.information-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.information-image {
+    width: 50%;
+}
+
+.information-table {
+    width: 45%;
+    border-spacing: 16px;
+    text-align: left;
+    letter-spacing: 1.5px;
+    line-height: 2;
+}
+
+.information-table-heading {
+    width: 25%;
+    border-right: 1px solid #a0a0a0;
+}
+
+tbody {
+    vertical-align: inherit;
+}
+// contact
+.contact {
+    width: 100%;
+    padding: 80px 0;
+    background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255,0.6)),
+    url(img/contact_us.png);
+    background-size: cover;
+}
+
+.btn-contact {
+    position: relative;
+    display: inline-block;
+    width: 360px;
+    padding-left: 40px;
+    height: 80px;
+    line-height: 80px;
+    border: 1px solid #a0a0a0;
+    background-color: #fff;
+    font-size: 20px;
+}
+// 擬似クラスでメールアイコン
+.btn-contact::before,
+.btn-contact::after {
+    content: "";
+    position: absolute;
+    border-radius: 2px;
+}
+
+.btn-contact::before {
+    top: 30px;
+    left: 85px;
+    width: 30px;
+    height: 20px;
+    border: 1px solid #2b2b2b;
+}
+
+.btn-contact::after {
+    top: 21px;
+    left: 90px;
+    width: 20px;
+    height: 20px;
+    border-right: 1px solid #2b2b2b;
+    border-bottom: 1px solid #2b2b2b;
+    transform: rotate(45deg);
+}
+// footer
+.footer {
+    width: 100%;
+    text-align: center;
+}
+
+.copyright {
+    line-height: 40px;
+    letter-spacing: 1.4px;
+}
+// レスポンシブ対応
+@media (max-width: 970px) {
+        .header-nav {
+        padding: 0 15px;
+    }
+    
+}
+
+@media (max-width: 840px) and (min-width: 671px) {
+
+    .work-contents {
+        width: 100%;
+    }
+
+    .work-content {
+        width: 50%;
+    }
+}
+@media (max-width: 670px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        width: calc(100% - 32px);
+        margin: 0 auto;
+    }
+
+    .u-heading {
+        font-size: 28px;
+    }
+
+    .u-text {
+        text-align: left;
+        padding-bottom: 32px;
+    }
+
+    .display-pc {
+        display: none;
+    }
+    // ヘッダー
+    .header {
+        height: 355px;
+        padding-top: 0;
+        background: url(img/top.png) 50%;
+        background-size: cover;
+    }
+
+    .header-nav {
+        position: fixed;
+        top: 0;
+        z-index: 10;
+    }
+
+    .header-nav-logo {
+        font-size: 24px;
+    }
+
+    .header-title {
+        padding-top: 120px;
+        font-size: 64px;
+    }
+    // concept
+    .concept {
+        padding: 40px 0;
+        background: linear-gradient(#fff 75%, #ededed 25%);
+    }
+    // work
+    .work {
+        position: relative;
+        padding: 40px 0 24px;
+    }
+    .work-contents-wrapper {
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .work-contents-wrapper::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+        border-radius: 8px;
+    }
+    // スクロールバーつまみ部分
+    .work-contents-wrapper::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+    }
+    // スクロールバー外枠
+    .work-contents-wrapper::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    .work-contents {
+        height: auto;
+        display: inline-flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .work-content {
+        width: 80vw;
+        padding-bottom: 40px;
+    }
+
+    .work-content:not(:last-of-type) {
+        margin-right: 24px;
+    }
+
+    .work-content:nth-of-type(3) {
+        margin-top: 0;
+    }
+
+    .work-img {
+        height: 200px;
+        margin-bottom: 0;
+        object-fit: cover;
+    }
+    // florist
+    .florist {
+        padding: 40px 0;
+        background: #ededed 55%;
+    }
+
+    .florist-persons-wrapper {
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .florist-persons-wrapper::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+        border-radius: 8px;
+    }
+
+    .florist-persons-wrapper::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+    }
+
+    .florist-persons-wrapper::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .florist-persons {
+        display: inline-flex;
+    }
+
+    .florist-person {
+        width: 80vw;
+    }
+
+    .florist-person:not(:last-of-type) {
+        margin-right: 24px;
+    }
+
+    .person-image {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    // information
+    .information {
+        padding: 40px 0;
+    }
+
+    .information-content {
+        display: block;
+    }
+
+    .information-image,
+    .information-table {
+        width: 100%;
+    }
+    // contact
+    .contact {
+        padding: 40px 0 64px;
+    }
+
+    .btn-contact {
+        width: 280px;
+        padding-left: 50px;
+    }
+
+    .btn-contact::before {
+        left: 45px;
+    }
+
+    .btn-contact::after {
+        left: 50px;
+    }
+}
